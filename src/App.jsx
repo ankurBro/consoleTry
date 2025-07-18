@@ -1,21 +1,18 @@
 import React from 'react';
-import BlogShare from './components/BlogShare';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import BlogList from './components/BlogList';
+import BlogPost from './components/BlogPost';
+import Home from './pages/Home';
 
 function App() {
-  const blogData = [
-    {
-      title: 'Nepal weather update from console',
-      image:
-        'https://unncdn.prixacdn.net/media/albums/revenue__final_hxUkRjv34E.jpg.360x240_q75_crop-smart_upscale.jpg',
-      description:
-        "'आज देशभर आंशिकदेखि सामान्यतया बदली रही वर्षाको सम्भावना छ।',",
-      slug: 'weather-today-nepal',
-    },
-  ];
   return (
-    <div className="min-h-screen bg-gray-100 p-8">
-      <BlogShare blog={blogData} />
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/blog" element={<BlogList />} />
+        <Route path="/blog/:slug" element={<BlogPost />} />
+      </Routes>
+    </Router>
   );
 }
 
