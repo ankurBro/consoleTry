@@ -29,7 +29,7 @@ function BlogPost() {
     return <h2 className="p-6 text-red-600">Post not found.</h2>;
   }
 
-  const shareUrl = `http://localhost:5173/blog/${post.slug}`;
+  const shareUrl = `${window.location.origin}/blog/${post.slug}`;
   const encodedUrl = encodeURIComponent(shareUrl);
   const encodedText = encodeURIComponent(post.title);
 
